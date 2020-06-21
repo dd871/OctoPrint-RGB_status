@@ -375,6 +375,7 @@ class RGBStatusPlugin(
             if self.effect_can_be_killed(force=force):
                 self._logger.info('Putting KILL code in queue')
                 self._queue.put('KILL')
+		time.sleep(0.01)
                 delattr(self, '_queue')
                 self._shutdown_event.set()
                 delattr(self, '_shutdown_event')
